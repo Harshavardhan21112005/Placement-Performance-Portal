@@ -1,0 +1,50 @@
+.time-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.time-box {
+  display: flex;
+  flex-direction: row;   /* 🔥 put label + input in a row */
+  align-items: center;   /* vertically center them */
+  justify-content: space-between;
+  font-size: 14px;
+  gap: 10px; /* spacing between label and input */
+ 
+}
+
+.time-box label {
+  font-weight: 550;
+  color: #333;
+  white-space: nowrap; /* prevent label from breaking to new line */
+}
+
+/* Input field */
+.react-time-picker {
+  flex: 1; /* 🔥 input takes full remaining space */
+}
+
+.react-time-picker__wrapper {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: #f7f7f7;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  height: 38px; /* consistent height */
+}
+
+/* Completely remove clock dropdown + prevent blank space */
+.react-clock,
+.react-time-picker__clock {
+  display: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}

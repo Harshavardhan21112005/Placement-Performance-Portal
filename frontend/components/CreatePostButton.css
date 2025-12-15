@@ -1,0 +1,115 @@
+/* Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Modal Box */
+.modal-box {
+  background: #ffffff;
+  padding: 20px;
+  width: 600px;
+  min-height: 400px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Text Area */
+.post-textarea {
+  flex: 1;
+  resize: none;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  outline: none; /* no border on typing */
+  border-radius: 6px;
+  background: #f9f9f9;
+}
+
+/* Preview Images */
+.image-preview {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.preview-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+
+/* Buttons */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.cancel-btn {
+  background: #ccc;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.post-btn {
+  background: #0077ff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  z-index: 1001;
+  width: 90%;          /* 👈 make it shrink on smaller screens */
+  max-width: 500px;    /* 👈 keep a max width for large screens */
+  margin: 10px;        /* 👈 ensure small margin on very small screens */
+}
+
+
+/* Image Upload Section */
+/* having the text : "upload an image" and icon in the same line */
+.image-upload {
+  display: flex;
+  align-items: center;   /* vertical center */
+  gap: 6px;              /* space between 📷 and text */
+  cursor: pointer;
+}
+.gallery-icon {
+  font-size: 22px;       /* make sure emoji and text scale nicely */
+  line-height: 1;        /* removes extra spacing */
+  cursor: pointer;
+}
+.upload-hint {
+  font-size: 14px;
+  line-height: 1;
+  position: relative;
+  top: 2px;   /* move text slightly down, adjust px as needed */
+}

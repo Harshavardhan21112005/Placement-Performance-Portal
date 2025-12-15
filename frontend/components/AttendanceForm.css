@@ -1,0 +1,184 @@
+/* Page layout */
+body {
+  overflow: hidden; /* prevents page scroll bar */
+}
+.attendance-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: #f3f4f6;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  padding-top: 50px;   /* push content below navbar */
+  box-sizing: border-box;
+}
+
+/* Tall box scaled from top to bottom */
+.attendance-box {
+  width: 90%;
+  max-width: 450px;       /* fixed width (card style) */
+  height: 100%;           /* stretch from top to bottom */
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 0;       /* remove rounding so it touches edges */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Controls */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+/* Student List */
+/* Hide scrollbar but allow scrolling */
+.students-list {
+  max-height: 270px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #fafafa;
+  scrollbar-width: none; /* Firefox */
+}
+
+.students-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+
+.student-row {
+  padding: 5px 0;
+}
+
+.student-row label {
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Textarea */.comment-box {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  font-size: 14px;
+  resize: none;
+  transition: border-color 0.2s ease;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* Remove dark border on focus */
+.comment-box:focus {
+  outline: none;           /* removes default browser outline */
+  border-color: #ccc;      /* keep same light border */
+  box-shadow: none;        /* remove glow effect in Chrome/Edge */
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 16px;
+  margin: 4px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s ease;
+}
+
+.btn.select {
+  background: #2196f3;
+  color: #fff;
+}
+
+.btn.select:hover {
+  background: #0b7dda;
+}
+
+.btn.clear {
+  background: #EF4444;
+  color: #fff;
+}
+
+.btn.clear:hover {
+  background: #DC2626;
+}
+
+.btn.submit {
+  background: #2196f3;
+  color: #fff;
+  display: block;
+}
+
+.btn.submit:hover {
+
+  background: #0b7dda;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-box {
+  background: #fff;
+  border-radius: 12px;
+  width: 350px;
+  text-align: center;
+}
+.btn.confirm {
+  background: #4caf50;
+  color: #fff;
+}
+
+.btn.cancel {
+  background: #f44336;
+  color: #fff;
+  margin-left: 10px;
+}
+
+/* Success Popup */
+.success-popup {
+
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.success-popup p {
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #2d3e50;
+}
+
+.btn.ok {
+  background: #2196f3;
+  color: #fff;
+}
+
+/*timing input*/

@@ -1,0 +1,156 @@
+1) users
+
+db.users.insertOne({
+  roll_number: "22IT045",   // primary key
+  name: "Ramesh Kumar",
+  email: "ramesh@example.com",
+  password: "$2b$10$hashedPasswordHere",
+  branch: "IT",
+  linkedin_id: "linkedin.com/in/ramesh-kumar",
+  git_id: "github.com/ramesh",
+  role: "PR",   // student | CR | PR | admin
+  badge: [
+    { month: "2025-08", count: 1 },
+    { month: "2025-09", count: 2 }
+  ]
+})
+
+import mongoose from "mongoose";
+
+const userSchema = new mongoose.Schema({
+  roll_number: { type: String, required: true, unique: true }, // primary key
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true }, // hashed
+  branch: { type: String },
+  linkedin_id: { type: String, unique: true, sparse: true },
+  git_id: { type: String, unique: true, sparse: true },
+  role: { type: String, enum: ["student", "CR", "PR", "admin"], required: true },
+
+  // For PRs: badge collection
+  badge: [
+    {
+      month: { type: String },  // e.g. "2025-09"
+      count: { type: Number, default: 1 }
+    }
+  ]
+}, { _id: false });  // remove default _id since roll_number is PK
+
+export default mongoose.model("User", userSchema);
+
+
+2) 
+
+db.attendance.insertOne({
+  _id: ObjectId("..."),
+  pr_roll_number: "23pw09",              // PR who uploaded
+  presents: ["23pw01", "23pw02", "23pw03"],
+  absents: ["23pw05", "23pw06"],
+  start_time: ISODate("2025-09-18T10:00:00Z"),
+  end_time: ISODate("2025-09-18T11:30:00Z"),
+  note: "Placement training on aptitude & reasoning",
+  createdAt: ISODate("2025-09-18T11:35:00Z")
+})
+
+
+import mongoose from "mongoose";
+
+const attendanceSchema = new mongoose.Schema({
+  pr_roll_number: {
+    type: String,
+    required: true, // PR who uploaded
+  },
+  presents: {
+    type: [String], // array of roll numbers
+    default: [],
+  },
+  absents: {
+    type: [String],
+    default: [],
+  },
+  start_time: {
+    type: Date,
+    required: true,
+  },
+  end_time: {
+    type: Date,
+    required: true,
+  },
+  note: {
+    type: String,
+    default: "",
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+// Optional: index on createdAt for faster sorting
+attendanceSchema.index({ createdAt: -1 });
+
+const Attendance = mongoose.model("Attendance", attendanceSchema);
+
+export default Attendance;
+
+
+3) post collection
+
+db.posts.insertOne({
+  post_id: "POST20250918123456",
+  created_by: { roll_number: "22IT045", name: "Ramesh" },
+  batch: "2022-2026",
+  created_at: new Date(),
+  images: [],
+  note: "Placement training session tomorrow at 10 AM.",
+  likes: [],
+  comments: []
+})
+
+
+models/Post.js
+
+import mongoose from "mongoose";
+
+const postSchema = new mongoose.Schema({
+  post_id: { type: String, required: true, unique: true },
+  created_by: {
+    roll_number: { type: String, required: true },
+    name: { type: String, required: true }
+  },
+  batch: { type: String, required: true },
+  created_at: { type: Date, default: Date.now },
+  images: { type: [String], default: [] },
+  note: { type: String },
+
+  likes: [
+    {
+      roll_number: String,
+      name: String
+    }
+  ],
+
+  comments: [
+    {
+      roll_number: String,
+      name: String,
+      comment: String
+    }
+  ]
+});
+
+export default mongoose.model("Post", postSchema);
+
+
+
+
+
+
+features
+
+1. metimeter scores
+2. broadcasts
+
+email and password
+EMAIL_USER=amcsplacements@gmail.com
+EMAIL_PASS=faggestduzjywouq

@@ -1,0 +1,113 @@
+/* login.css */
+
+/* Full-page background */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #dcd5f8, #1b45c1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+}
+
+/* White login box */
+.login-container form {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+/* Heading */
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 5px;
+    color: #333;
+    font-size: 1.8rem;
+}
+
+/* Input groups */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.input-group label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+/* Inputs */
+.input-group input {
+    padding: 12px 40px 12px 15px; /* right padding for password toggle */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-group input:focus {
+    border-color: #7a6fff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(122, 111, 255, 0.3);
+}
+
+/* Password toggle */
+.password-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    user-select: none;
+}
+
+/* Button */
+.btn {
+    height: 40px;
+    width: 100%;
+    padding: 12px;
+    background-color: #7a6fff;
+    border: none;
+    border-radius: 22px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #6159e6;
+}
+
+/* Extra links */
+.extra-links {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.extra-links a {
+    text-decoration: none;
+    color: #7a6fff;
+    transition: 0.3s;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}
